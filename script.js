@@ -41,29 +41,6 @@ const inputOperator = (operator) => {
     currentNumber = '0'
 }
 
-const percentSign = document.querySelector('.percentage')
-
-percentSign.addEventListener('click', (event) => {
-    inputPercent(event.target.value)
-    percent()
-    updateScreen(currentNumber)
-})
-
-const inputPercent = (perc) => {
-    if (currentNumber.includes('%')){
-        return
-    }
-    currentNumber += perc
-}
-
-const percent = () => {
-    let result =''
-    if (currentNumber.includes('%')){
-        result = parseFloat(currentNumber) / 100
-    }
-    currentNumber = result
-}
-
 const decimal = document.querySelector('.decimal')
 
 decimal.addEventListener('click', (event) => {
@@ -76,6 +53,19 @@ inputDecimal = (dot) => {
         return
     }
     currentNumber += dot
+}
+
+const percentSign = document.querySelector('.percentage')
+
+percentSign.addEventListener('click', (event) => {
+    percent()
+    updateScreen(currentNumber)
+})
+
+const percent = () => {
+    let result =''
+        result = parseFloat(currentNumber) / 100
+    currentNumber = result
 }
 
 const equalSign = document.querySelector('.equal-sign')
